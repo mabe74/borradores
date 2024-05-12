@@ -13,7 +13,7 @@ Algoritmo benitezFossatiTaborda
 	
     //Declaracion de variables
 	Definir nombre Como Caracter
-	Definir diaN, mesN, anioN, diaA, mesA, anioA, aux1, aux2, auxBis, diasFraccionados, cantAnios, cantMeses, cantMeses1, cantDias Como Entero
+	Definir diaN, mesN, anioN, diaA, mesA, anioA, aux2, auxBis, diasFraccionados, cantAnios, cantMeses, cantMeses1, cantDias Como Entero
 
 	
 	Escribir 'Ingrese su nombre: ' //Pide ingresar el nombre del usuario
@@ -99,24 +99,24 @@ Algoritmo benitezFossatiTaborda
 		cantAnios = (anioA)-anioN
 		cantMeses = mesN-mesA
 		cantDias = ((30-diaN)+diaA) + (trunc(cantAnios/4)) //Calcula los dias sobrantes y agrega los dias de los anios bisiestos
-		diasFraccionados = aux1
+		//diasFraccionados = aux1 ***No hace falta***
 		aux2 = trunc(cantDias / 30)
 	SiNo
 		Si mesN > mesA  Entonces
 			cantAnios = (anioA-1)-anioN
 			cantDias = ((30-diaN)+diaA)+(trunc(cantAnios/4))//Calcula los dias sobrantes y agrega los dias de los anios bisiestos
-			aux1=cantDias MOD 30
-			diasFraccionados = aux1
-			aux2 = trunc(cantDias / 30)
+			diasFraccionados = cantDias MOD 30 //Calcula el resto
+			//diasFraccionados = aux1 ***No hace falta***
+			aux2 = trunc(cantDias / 30) //Parte entera
 			cantMeses = (12-mesN)+(mesA-1)+aux2
 		SiNo
 			cantAnios = anioA-anioN
-			//cantMeses = (mesA - mesN)-1
+			cantMeses = (mesA - mesN)-1
 			cantDias = ((30-diaN)+diaA) + (trunc(cantAnios/4))//Calcula los dias sobrantes y agrega los dias de los anios bisiestos
 			aux1=cantDias MOD 30
-			diasFraccionados = aux1
+			//diasFraccionados = aux1 ***No hace falta***
 			aux2 = trunc(cantDias / 30)
-			cantMeses = ((12-mesN)+(mesA-1)-1)+aux2
+			
 		FinSi
 	FinSi
 	
